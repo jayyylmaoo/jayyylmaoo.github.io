@@ -1,0 +1,136 @@
+<HTML>
+    <head>
+        <title>Mouse Sensitivity Tool</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="javascript.js"></script>
+    </head>
+
+    <body>
+        <form name="mainform">
+            <div id="header">
+                <a href="#settings">settings</a>
+                /
+                <a href="#sensitivity">sensitivity</a>
+            </div>
+            <table class="bigtable" border="0">
+                <tbody>
+                    <tr>
+                        <td class="col-left">
+                            <div id="settings">settings</div>
+                        </td>
+                        <td class="rightcolsplit1">
+                            <span class="dpi" onmouseover="getElementByClass('dpi', 'red')" onmouseout="resetColor('dpi')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">mouse resolution (dpi)</span>
+                            <input size="4" type="text" name="dpi" value="800">
+                            <br>
+                            <span class="wsm" onmouseover="getElementByClass('wsm', 'red')" onmouseout="resetColor('wsm')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">windows sensitivity</span>
+                            <input size="4" type="text" name="wsm" value="1">
+                            <br>
+                        </td>
+                        <td class="rightcolsplit2">
+                            <input size="4" type="text" name="sens">
+                            <span class="sens" onmouseover="getElementByClass('sens', 'red')" onmouseout="resetColor('sens')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">in-game sensitivity</span>
+                            <br>
+                            <input size="4" type="text" name="myaw" value="0.022">
+                            <span class="yaw" onmouseover="getElementByClass('yaw', 'red')" onmouseout="resetColor('yaw')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">m_yaw (0.022 default)</span>
+                            <br>
+                        </td>
+                        <td>
+                            To see where a specific setting is located in any of the following equations, mouse over it.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td class="center" colspan="2">
+                            <br>
+                            <span class="wsmtooltip" onmouseover="tooltip.show('1/11 = 0.03125<br />2/11 = 0.0625<br />3/11 = 0.25<br />4/11 = 0.5<br />5/11 = 0.75<br />6/11 = 1<br />7/11 = 1.5<br />8/11 = 2<br />9/11 = 2.5<br />10/11 = 3<br />11/11 = 3.5'), 150;" onmouseout="tooltip.hide();">windows sensitivity multipliers</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="bigtable" border="0">
+                <tbody>
+                    <tr>
+                        <td class="col-left">
+                            <div id="sensitivity">sensitivity</div>
+                        </td>
+                        <td class="right-box">
+                            <table border="0">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-mid">
+                                            <input type="button" value="calculate" onclick="calc2()">
+                                            real sensitivity (cm/360) =
+                                            <input type="text" name="rsenscm">
+                                            <br>
+                                            <br>
+                                            By combining your mouse dpi, windows sensitivty, in-game sensitivity, m_yaw values, and dividing them by 360, you can calculate how many centimeters it takes for you to complete a 360 degree urn. This is called your real sensitivity.
+                                            <br>
+                                            <br>
+                                        </td>
+                                        <td class="col-right">
+                                            (360 / (
+                                                <span class="yaw" onmouseover="getElementByClass('yaw', 'red')" onmouseout="resetColor('yaw')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">y</span>
+                                                *
+                                                <span class="dpi" onmouseover="getElementByClass('dpi', 'red')" onmouseout="resetColor('dpi')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">d</span>
+                                                *
+                                                <span class="wsm" onmouseover="getElementByClass('wsm', 'red')" onmouseout="resetColor('wsm')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">w</span>
+                                                *
+                                                <span class="sens" onmouseover="getElementByClass('sens', 'red')" onmouseout="resetColor('sens')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">s</span>
+                                            )) * 2.54
+                                            <br>
+                                            <br>
+                                            <span class="yaw" onmouseover="getElementByClass('yaw', 'red')" onmouseout="resetColor('yaw')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">m_yaw</span>
+                                            <br>
+                                            <span class="dpi" onmouseover="getElementByClass('dpi', 'red')" onmouseout="resetColor('dpi')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">mouse resolution (dpi)</span>
+                                            <br>
+                                            <span class="wsm" onmouseover="getElementByClass('wsm', 'red')" onmouseout="resetColor('wsm')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">windows sensitivity multiplier</span>
+                                            <br>
+                                            <span class="sens" onmouseover="getElementByClass('sens', 'red')" onmouseout="resetColor('sens')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">in-game sensitivity</span>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-mid">
+                                            <input type="button" value="calculate" onclick="calc1()">
+                                            <span class="rsensin">real sensitivity (inches/360)</span>
+                                            =
+                                            <input type="text" name="rsensin">
+                                            <br>
+                                            <br>
+                                            For those of you who don't use the metric system, the above is how many inches it takes to complete a 360 degree turn.
+                                            <br>
+                                            <br>
+                                            Note: If you are using accel, then the real sensitivity calculation will give you a "base" sensitivity, which is the sensitivity you would get if you disabled accel.
+                                        </td>
+                                        <td class="col-right">
+                                            360 / (
+                                                <span class="yaw" onmouseover="getElementByClass('yaw', 'red')" onmouseout="resetColor('yaw')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">y</span>
+                                                *
+                                                <span class="dpi" onmouseover="getElementByClass('dpi', 'red')" onmouseout="resetColor('dpi')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">d</span>
+                                                *
+                                                <span class="wsm" onmouseover="getElementByClass('wsm', 'red')" onmouseout="resetColor('wsm')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">w</span>
+                                                *
+                                                <span class="sens" onmouseover="getElementByClass('sens', 'red')" onmouseout="resetColor('sens')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">s</span>
+                                            )
+                                            <br>
+                                            <br>
+                                            <span class="yaw" onmouseover="getElementByClass('yaw', 'red')" onmouseout="resetColor('yaw')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">m_yaw</span>
+                                            <br>
+                                            <span class="dpi" onmouseover="getElementByClass('dpi', 'red')" onmouseout="resetColor('dpi')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">mouse resolution (dpi)</span>
+                                            <br>
+                                            <span class="wsm" onmouseover="getElementByClass('wsm', 'red')" onmouseout="resetColor('wsm')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">windows sensitivity multiplier</span>
+                                            <br>
+                                            <span class="sens" onmouseover="getElementByClass('sens', 'red')" onmouseout="resetColor('sens')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">in-game sensitivity</span>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</HTML>
