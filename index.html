@@ -8,9 +8,7 @@
     <body>
         <form name="mainform">
             <div id="header">
-                <a href="#settings">settings</a>
-                /
-                <a href="#sensitivity">sensitivity</a>
+                Mouse Sensitivity Calculator
             </div>
             <table class="bigtable" border="0">
                 <tbody>
@@ -19,22 +17,18 @@
                             <div id="settings">settings</div>
                         </td>
                         <td class="rightcolsplit1">
-                            <span class="dpi" onmouseover="getElementByClass('dpi', 'red')" onmouseout="resetColor('dpi')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">mouse resolution (dpi)</span>
-                            <input size="4" type="text" name="dpi" value="800">
+                            <span class="dpi" onmouseover="getElementByClass('dpi', 'red')" onmouseout="resetColor('dpi')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">mouse resolution (dpi)</span><input size="4" type="text" name="dpi" value="800">
                             <br>
-                            <span class="wsm" onmouseover="getElementByClass('wsm', 'red')" onmouseout="resetColor('wsm')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">windows sensitivity</span>
-                            <input size="4" type="text" name="wsm" value="1">
+                            <span class="wsm" onmouseover="getElementByClass('wsm', 'red')" onmouseout="resetColor('wsm')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">windows sensitivity</span><input size="4" type="text" name="wsm" value="1">
                             <br>
                         </td>
                         <td class="rightcolsplit2">
-                            <input size="4" type="text" name="sens">
-                            <span class="sens" onmouseover="getElementByClass('sens', 'red')" onmouseout="resetColor('sens')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">in-game sensitivity</span>
+                            <span class="sens" onmouseover="getElementByClass('sens', 'red')" onmouseout="resetColor('sens')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">in-game sensitivity</span><input size="4" type="text" name="sens">
                             <br>
-                            <input size="4" type="text" name="myaw" value="0.022">
-                            <span class="yaw" onmouseover="getElementByClass('yaw', 'red')" onmouseout="resetColor('yaw')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">m_yaw (0.022 default)</span>
+                            <span class="yaw" onmouseover="getElementByClass('yaw', 'red')" onmouseout="resetColor('yaw')" style="color: black; --darkreader-inline-color: var(--darkreader-text-000000, #e8e6e3);" data-darkreader-inline-color="">m_yaw (0.022 default)</span><input size="4" type="text" name="myaw" value="0.022">
                             <br>
                         </td>
-                        <td>
+                        <td class="col-right">
                             To see where a specific setting is located in any of the following equations, mouse over it.
                         </td>
                     </tr>
@@ -61,7 +55,7 @@
                                         <td class="col-mid">
                                             <input type="button" value="calculate" onclick="calc2()">
                                             real sensitivity (cm/360) =
-                                            <input type="text" name="rsenscm">
+                                            <input size="15" type="text" name="rsenscm">
                                             <br>
                                             <br>
                                             By combining your mouse dpi, windows sensitivty, in-game sensitivity, m_yaw values, and dividing them by 360, you can calculate how many centimeters it takes for you to complete a 360 degree urn. This is called your real sensitivity.
@@ -95,7 +89,7 @@
                                             <input type="button" value="calculate" onclick="calc1()">
                                             <span class="rsensin">real sensitivity (inches/360)</span>
                                             =
-                                            <input type="text" name="rsensin">
+                                            <input size="15" type="text" name="rsensin">
                                             <br>
                                             <br>
                                             For those of you who don't use the metric system, the above is how many inches it takes to complete a 360 degree turn.
